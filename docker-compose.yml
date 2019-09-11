@@ -1,14 +1,17 @@
 version: '3.3'
 services:
-  #odormap:
-  #  build:
-  #    context: ./odormap
-  #  ports:
-  #    - "8081:80"
-  #  container_name: odormap
+  odormap:
+    build:
+      context: /home/rgerkin/Dropbox/olfaction/pyrfume
+      dockerfile: ./dash/odormap/Dockerfile
+    volumes:
+      - /home/rgerkin/Dropbox/olfaction/pyrfume/data:/pyrfume/data
+    ports:
+      - "9000:80"
+    container_name: odormap
   cns_2019:
     build:
       context: ./cns_2019
     ports:
-      - "8080:80"
+      - "9001:80"
     container_name: cns_2019
